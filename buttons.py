@@ -31,6 +31,8 @@ while True:
     if state == "playing":
         secs=time.time()-inittime
         lcd.setCursor(11, 0)
+        lcd.message("Time:")
+        lcd.setcursor(11,1)
         lcd.message(secs)
         
     if state == "new":
@@ -53,7 +55,7 @@ while True:
                     score +=1
                     highscore = Highscore(score,highscore)
                     lcd.clear()
-                    lcd.message("Score:"+str(score)+"\n"+"Highscore:"+str(highscore))
+                    lcd.message("Score:"+str(score)+"\n"+"High:"+str(highscore))
                     state ="playing"
             if b is btn[3]:
                 score = 0
