@@ -34,5 +34,5 @@ while True:
                 lcd.message("Game Reset")
                 state="new"
                 sleep(.2)
-             )
+
             
