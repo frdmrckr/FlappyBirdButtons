@@ -4,6 +4,7 @@ Created on Apr 4, 2014
 @author: Mike Campbell
 '''
 from Adafruit_CharLCDPlate import Adafruit_CharLCDPlate
+from time import sleep
 import time
 
 
@@ -15,7 +16,7 @@ btn = (lcd.LEFT, lcd.UP, lcd.DOWN, lcd.RIGHT, lcd.SELECT)
 score = 0
 highscore=0
 state = "new"
-time=0
+secs=0
 
 def Highscore(score,highscore):
     if score > highscore:
@@ -30,19 +31,19 @@ while True:
         if score == 0:
             inittime=time.clock()
         else:
-            time=time.clock()-inittime
+            secs=time.clock()-inittime
     if state == "new":
         lcd.clear()
         lcd.message("Sparty Bird!")
         state ="start"
-        time.sleep(1)
+        sleep(1)
         lcd.clear()
         lcd.message("Ready to Play!")
     
     for b in btn:
         if lcd.buttonPressed(b):
             if b is btn[4]:
-                time.sleep(.2)
+                sleep(.2)
                 if lcd.buttonPressed(btn[4]):
                     score = score
                 else:
@@ -56,7 +57,7 @@ while True:
                 lcd.clear()
                 lcd.message("Game Reset")
                 state="new"
-                time.sleep(1)
+                sleep(1)
     lcd.setCursor(12, 1)
-    lcd.message(time)
+    lcd.message(secs)
             
