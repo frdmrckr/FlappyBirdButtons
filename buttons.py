@@ -9,7 +9,7 @@ from time import sleep
 lcd = Adafruit_CharLCDPlate()
 lcd.begin(16, 2)
 lcd.clear()
-lcd.backlight(lcd.on)
+lcd.backlight(lcd.ON)
 btn = (lcd.LEFT, lcd.UP, lcd.DOWN, lcd.RIGHT, lcd.SELECT)
 score = 0
 state = "new"
