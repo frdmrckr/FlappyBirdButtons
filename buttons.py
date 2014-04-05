@@ -32,7 +32,7 @@ while True:
         secs=time.time()-inittime
         lcd.setCursor(11, 0)
         lcd.message("Time:")
-        lcd.setcursor(11,1)
+        lcd.setCursor(11,1)
         lcd.message(secs)
         
     if state == "new":
