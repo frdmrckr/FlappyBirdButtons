@@ -36,7 +36,7 @@ while True:
         if lcd.buttonPressed(b):
             if b is btn[4]:
                 sleep(.2)
-                if lcd.buttonPre(btn[4]):
+                if lcd.buttonPressed(btn[4]):
                     score = score
                 else:
                     score +=1
