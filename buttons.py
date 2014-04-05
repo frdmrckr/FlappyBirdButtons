@@ -51,10 +51,10 @@ while True:
                     score = score
                 else:
                     if score == 0:
+                        lcd.clear()
                         inittime=time.time()
                     score +=1
                     highscore = Highscore(score,highscore)
-                    lcd.clear()
                     lcd.message("Score:"+str(score)+"\n"+"High:"+str(highscore))
                     state ="playing"
             if b is btn[3]:
