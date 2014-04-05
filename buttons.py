@@ -4,8 +4,9 @@ Created on Apr 4, 2014
 @author: Mike Campbell
 '''
 from Adafruit_CharLCDPlate import Adafruit_CharLCDPlate
-from time import sleep
+import time
 
+sleep=time.sleep()
 lcd = Adafruit_CharLCDPlate()
 lcd.begin(16, 2)
 lcd.clear()
@@ -14,6 +15,7 @@ btn = (lcd.LEFT, lcd.UP, lcd.DOWN, lcd.RIGHT, lcd.SELECT)
 score = 0
 highscore=0
 state = "new"
+time=0
 
 def Highscore(score,highscore):
     if score > highscore:
@@ -24,10 +26,15 @@ def Highscore(score,highscore):
 
 while True:
     
+    if state == "playing":
+        if score == 0:
+            inittime=time.clock()
+        else:
+            time=time.clock()-inittime
     if state == "new":
         lcd.clear()
         lcd.message("Sparty Bird!")
-        state ="playing"
+        state ="start"
         sleep(1)
         lcd.clear()
         lcd.message("Ready to Play!")
@@ -50,5 +57,6 @@ while True:
                 lcd.message("Game Reset")
                 state="new"
                 sleep(1)
-
+    lcd.setCursor(12, 1)
+    lcd.message(time)
             
