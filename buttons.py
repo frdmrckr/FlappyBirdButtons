@@ -29,6 +29,7 @@ while True:
         lcd.message("Sparty Bird!")
         state ="playing"
         sleep(1)
+        lcd.clear()
         lcd.message("Ready to Play!")
     
     for b in btn:
