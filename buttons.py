@@ -35,12 +35,15 @@ while True:
     for b in btn:
         if lcd.buttonPressed(b):
             if b is btn[4]:
-                score +=1
-                highscore = Highscore(score,highscore)
-                lcd.clear()
-                lcd.message("Score:"+str(score)+"\n"+"Highscore:"+str(highscore))
-                state ="playing"
                 sleep(.2)
+                if lcd.buttonPre(btn[4]):
+                    score = score
+                else:
+                    score +=1
+                    highscore = Highscore(score,highscore)
+                    lcd.clear()
+                    lcd.message("Score:"+str(score)+"\n"+"Highscore:"+str(highscore))
+                    state ="playing"
             if b is btn[3]:
                 score = 0
                 lcd.clear()
