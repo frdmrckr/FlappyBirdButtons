@@ -29,10 +29,7 @@ def Highscore(score,highscore):
 while True:
     
     if state == "playing":
-        if score == 0:
-            inittime=time.time()
-        else:
-            secs=time.time()-inittime
+        secs=time.time()-inittime
         lcd.setCursor(11, 0)
         lcd.message(secs)
         
@@ -51,6 +48,8 @@ while True:
                 if lcd.buttonPressed(btn[4]):
                     score = score
                 else:
+                    if score == 0:
+                        inittime=time.time()
                     score +=1
                     highscore = Highscore(score,highscore)
                     lcd.clear()
