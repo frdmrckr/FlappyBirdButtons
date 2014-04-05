@@ -6,7 +6,7 @@ Created on Apr 4, 2014
 from Adafruit_CharLCDPlate import Adafruit_CharLCDPlate
 import time
 
-sleep=time.sleep()
+
 lcd = Adafruit_CharLCDPlate()
 lcd.begin(16, 2)
 lcd.clear()
@@ -35,14 +35,14 @@ while True:
         lcd.clear()
         lcd.message("Sparty Bird!")
         state ="start"
-        sleep(1)
+        time.sleep(1)
         lcd.clear()
         lcd.message("Ready to Play!")
     
     for b in btn:
         if lcd.buttonPressed(b):
             if b is btn[4]:
-                sleep(.2)
+                time.sleep(.2)
                 if lcd.buttonPressed(btn[4]):
                     score = score
                 else:
@@ -56,7 +56,7 @@ while True:
                 lcd.clear()
                 lcd.message("Game Reset")
                 state="new"
-                sleep(1)
+                time.sleep(1)
     lcd.setCursor(12, 1)
     lcd.message(time)
             
