@@ -32,6 +32,9 @@ while True:
             inittime=time.clock()
         else:
             secs=time.clock()-inittime
+        lcd.setCursor(11, 0)
+        lcd.message(secs)
+        
     if state == "new":
         lcd.clear()
         lcd.message("Sparty Bird!")
@@ -58,6 +61,5 @@ while True:
                 lcd.message("Game Reset")
                 state="new"
                 sleep(1)
-    lcd.setCursor(12, 1)
-    lcd.message(secs)
+
             
