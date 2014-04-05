@@ -35,6 +35,6 @@ while True:
                 lcd.clear()
                 lcd.message("Game Reset")
                 state="new"
-                sleep(.2)
+                sleep(1)
 
             
