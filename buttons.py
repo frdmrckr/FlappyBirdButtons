@@ -36,7 +36,7 @@ while True:
         if lcd.buttonPressed(b):
             if b is btn[4]:
                 score +=1
-                Highscore(score,highscore)
+                highscore = Highscore(score,highscore)
                 lcd.clear()
                 lcd.message("Score:"+str(score)+"\n"+"Highscore:"+str(highscore))
                 state ="playing"
