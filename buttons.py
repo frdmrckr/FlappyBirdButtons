@@ -17,7 +17,9 @@ state = "new"
 while True:
     
     if state == "new":
+        lcd.clear()
         lcd.message("Sparty Bird!")
+        state ="playing"
         sleep(1)
     
     for b in btn:
