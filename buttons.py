@@ -12,7 +12,15 @@ lcd.clear()
 lcd.backlight(lcd.ON)
 btn = (lcd.LEFT, lcd.UP, lcd.DOWN, lcd.RIGHT, lcd.SELECT)
 score = 0
+highscore=0
 state = "new"
+
+def Highscore(score,highscore):
+    if score > highscore:
+        highscore = score
+    return highscore
+    
+    
 
 while True:
     
@@ -21,13 +29,15 @@ while True:
         lcd.message("Sparty Bird!")
         state ="playing"
         sleep(1)
+        lcd.message("Ready to Play!")
     
     for b in btn:
         if lcd.buttonPressed(b):
             if b is btn[4]:
                 score +=1
+                Highscore(score,highscore)
                 lcd.clear()
-                lcd.message("Score:"+str(score))
+                lcd.message("Score:"+str(score)+"\n"+"Highscore:"+str(highscore))
                 state ="playing"
                 sleep(.2)
             if b is btn[3]:
