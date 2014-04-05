@@ -29,7 +29,7 @@ while True:
                 lcd.clear()
                 lcd.message("Score:"+str(score))
                 state ="playing"
-                sleep(.05)
+                sleep(.2)
             if b is btn[3]:
                 score = 0
                 lcd.clear()
