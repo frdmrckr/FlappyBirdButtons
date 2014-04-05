@@ -29,9 +29,9 @@ while True:
     
     if state == "playing":
         if score == 0:
-            inittime=time.clock()
+            inittime=time.time()
         else:
-            secs=time.clock()-inittime
+            secs=time.time()-inittime
         lcd.setCursor(11, 0)
         lcd.message(secs)
         
