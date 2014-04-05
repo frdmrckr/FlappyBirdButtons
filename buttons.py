@@ -17,6 +17,7 @@ score = 0
 highscore=0
 state = "new"
 secs=0
+inittime=0
 
 def Highscore(score,highscore):
     if score > highscore:
