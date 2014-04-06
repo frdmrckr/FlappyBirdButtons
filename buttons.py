@@ -34,7 +34,10 @@ while True:
         lcd.message("Time:")
         lcd.setCursor(11,1)
         lcd.message(secs)
-        
+        time=secs
+    
+    if state == "pause":
+        time = time
     if state == "new":
         lcd.clear()
         lcd.message("Sparty Bird!")
@@ -47,17 +50,18 @@ while True:
         if lcd.buttonPressed(b):
             if b is btn[4]:
                 sleep(.2)
-                if lcd.buttonPressed(btn[4]):
-                    score = score
-                else:
-                    if score == 0:
-                        lcd.clear()
-                        inittime=time.time()
-                    score +=1
-                    highscore = Highscore(score,highscore)
-                    lcd.setCursor(0,0)
-                    lcd.message("Score:"+str(score)+"\n"+"High:"+str(highscore))
-                    state ="playing"
+                if state != "pause":
+                    if lcd.buttonPressed(btn[4]):
+                        score = score
+                    else:
+                        if score == 0:
+                            lcd.clear()
+                            inittime=time.time()
+                        score +=1
+                        highscore = Highscore(score,highscore)
+                        lcd.setCursor(0,0)
+                        lcd.message("Score:"+str(score)+"\n"+"High:"+str(highscore))
+                        state ="playing"
             if b is btn[3]:
                 score = 0
                 lcd.clear()
@@ -65,4 +69,5 @@ while True:
                 state="new"
                 sleep(1)
 
-            
+            if b is btn[0]:
+                state="pause"
