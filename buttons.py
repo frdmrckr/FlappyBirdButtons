@@ -34,10 +34,10 @@ while True:
         lcd.message("Time:")
         lcd.setCursor(11,1)
         lcd.message(secs)
-        time=secs
+        t=secs
     
     if state == "pause":
-        time = time
+        t = t
     if state == "new":
         lcd.clear()
         lcd.message("Sparty Bird!")
@@ -70,4 +70,8 @@ while True:
                 sleep(1)
 
             if b is btn[0]:
-                state="pause"
+                if state =="playing":
+                    state="pause"
+                elif state =="pause":
+                    inittime=time.time()
+                    state="playing"
