@@ -71,6 +71,9 @@ while True:
                 sleep(1)
 
             if b is btn[0]:
+                if state == "start":
+                    state="playing"
+                    sleep(.2)
                 if state =="playing":
                     state="pause"
                     sleep(.2)
