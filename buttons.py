@@ -72,6 +72,8 @@ while True:
             if b is btn[0]:
                 if state =="playing":
                     state="pause"
+                    sleep(.2)
                 elif state =="pause":
                     inittime=time.time()
                     state="playing"
+                    sleep(.2)
