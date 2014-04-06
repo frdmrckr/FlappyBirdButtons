@@ -75,6 +75,6 @@ while True:
                     state="pause"
                     sleep(.2)
                 elif state =="pause":
-                    inittime=time.time()+t
+                    inittime=time.time()-t
                     state="playing"
                     sleep(.2)
