@@ -63,6 +63,7 @@ while True:
                     else:
                         if state == "ready":
                             score=1
+                            highscore=Highscore(score,highscore)
                             state="playing"
                             lcd.clear()
                             writeScore(score,highscore)
