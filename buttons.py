@@ -55,19 +55,18 @@ while True:
                 if state != "pause":
                     if lcd.buttonPressed(btn[4]):
                         score = score
+                    if state == "ready":
+                        score=1
+                        state="playing"
+                        lcd.clear()
+                        inittime=time.time()
                     else:
-                        if score == 0:
-                            lcd.clear()
-                            inittime=time.time()
                         score +=1
                         highscore = Highscore(score,highscore)
                         lcd.setCursor(0,0)
                         lcd.message("Score:"+str(score)+"\n"+"High:"+str(highscore))
-                        state ="playing"
             if b is btn[3]:
-                score = 0
                 state="new"
-                secs=0.000
                 sleep(.2)
 
             if b is btn[0]:
