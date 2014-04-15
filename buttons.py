@@ -46,7 +46,7 @@ while True:
         lcd.message("Time:")
         lcd.setCursor(11,1)
         lcd.message(secs)
-        lcd.stat("ready")
+        state=("ready")
     
     for b in btn:
         if lcd.buttonPressed(b):
