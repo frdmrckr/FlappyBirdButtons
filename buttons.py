@@ -66,11 +66,9 @@ while True:
                         state ="playing"
             if b is btn[3]:
                 score = 0
-                lcd.clear()
-                lcd.message("Game Reset")
                 state="new"
                 secs=0.000
-                sleep(1)
+                sleep(.2)
 
             if b is btn[0]:
                 if state == "start":
