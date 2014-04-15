@@ -59,6 +59,8 @@ while True:
                         score=1
                         state="playing"
                         lcd.clear()
+                        lcd.setCursor(0,0)
+                        lcd.message("Score:"+str(score)+"\n"+"High:"+str(highscore))
                         inittime=time.time()
                     else:
                         score +=1
