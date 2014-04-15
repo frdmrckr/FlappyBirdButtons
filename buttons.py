@@ -41,11 +41,11 @@ while True:
         
     if state == "new":
         lcd.clear()
-        lcd.message("Sparty Bird!")
-        state ="start"
-        sleep(1)
-        lcd.clear()
-        lcd.message("Ready to Play!")
+        lcd.message("Score:"+str(score)+"\n"+"High:"+str(highscore))
+        lcd.setCursor(11, 0)
+        lcd.message("Time:")
+        lcd.setCursor(11,1)
+        lcd.message(secs)
     
     for b in btn:
         if lcd.buttonPressed(b):
