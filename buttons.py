@@ -23,17 +23,25 @@ def Highscore(score,highscore):
     if score > highscore:
         highscore = score
     return highscore
-    
+
+def writeScore(score,highscore):
+    lcd.setCursor(0,0)
+    lcd.message("Score:"+str(score)+"\n"+"High:"+str(highscore))
+    return
+
+def writeTime(secs):
+    lcd.setCursor(11, 0)
+    lcd.message("Time:")
+    lcd.setCursor(11,1)
+    lcd.message(secs)
+    return
     
 
 while True:
     
     if state == "playing":
         secs=time.time()-inittime
-        lcd.setCursor(11, 0)
-        lcd.message("Time:")
-        lcd.setCursor(11,1)
-        lcd.message(secs)
+        writeTime(secs)
         t=secs
     
     if state == "pause":
@@ -41,11 +49,8 @@ while True:
         
     if state == "new":
         lcd.clear()
-        lcd.message("Score:"+str(score)+"\n"+"High:"+str(highscore))
-        lcd.setCursor(11, 0)
-        lcd.message("Time:")
-        lcd.setCursor(11,1)
-        lcd.message(secs)
+        writeScore(score,highscore)
+        writeTime(secs)
         state=("ready")
     
     for b in btn:
@@ -60,26 +65,12 @@ while True:
                             score=1
                             state="playing"
                             lcd.clear()
-                            lcd.setCursor(0,0)
-                            lcd.message("Score:"+str(score)+"\n"+"High:"+str(highscore))
+                            writeScore(score,highscore)
                             inittime=time.time()
                         else:
                             score +=1
                             highscore = Highscore(score,highscore)
-                            lcd.setCursor(0,0)
-                            lcd.message("Score:"+str(score)+"\n"+"High:"+str(highscore))
+                            writeScore(score,highscore)
             if b is btn[3]:
                 state="new"
                 sleep(.2)
-
-            if b is btn[0]:
-                if state == "start":
-                    state="playing"
-                    sleep(.2)
-                if state =="playing":
-                    state="pause"
-                    sleep(.2)
-                elif state =="pause":
-                    inittime=time.time()-t
-                    state="playing"
-                    sleep(.2)
