@@ -16,7 +16,7 @@ btn = (lcd.LEFT, lcd.UP, lcd.DOWN, lcd.RIGHT, lcd.SELECT)
 score = 0
 highscore=0
 state = "new"
-secs=0
+secs=0.000
 inittime=0
 
 def Highscore(score,highscore):
@@ -46,6 +46,7 @@ while True:
         lcd.message("Time:")
         lcd.setCursor(11,1)
         lcd.message(secs)
+        lcd.stat("ready")
     
     for b in btn:
         if lcd.buttonPressed(b):
@@ -68,6 +69,7 @@ while True:
                 lcd.clear()
                 lcd.message("Game Reset")
                 state="new"
+                secs=0.000
                 sleep(1)
 
             if b is btn[0]:
